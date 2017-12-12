@@ -12,7 +12,7 @@
                 </header>
                 <nav class="bar bar-tab" v-if="unShows.indexOf(toolbar)<0">
 
-                  <a class="tab-item active" @click="home">
+                  <a class="tab-item " @click="home">
                     <span class="icon icon-home"></span>
                     <span class="tab-label">首页</span>
                   </a>
@@ -54,18 +54,25 @@ export default {
     }
   },
   methods:{
-        home : function(){
+        home : function(event){
               this.$router.push({path: '/home'})
-
+              event.path[1].classList.add("active")
             },
-        mine : function(){
-              this.$router.push({path:'/mine'}) 
+        mine : function(event){
+
+              this.$router.push({path:'/mine'})
+              event.path[1].classList.add("active")
+
         },
-        cart : function(){
+        cart : function(event){
               this.$router.push({path:'/cart'}) 
+              event.path[1].classList.add("active")
+
         },
-        barcode:function(){
+        barcode:function(event){
               this.$router.push({path:'/barcode'}) 
+              event.path[1].classList.add("active")
+
         },
         back:function(){
           this.$router.push({path:this.backrouter})
@@ -74,6 +81,8 @@ export default {
           this.toolbar = _config;
           this.backrouter = _backrouter;
         }
+
+
   },
   // beforeUpdate:function(){
   //  this.$router.push({path: '/home'})

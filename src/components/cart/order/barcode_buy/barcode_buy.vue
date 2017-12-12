@@ -88,6 +88,23 @@
                               msg:"",
                               buttons:[
                                   { title:"确定",color:"red",click:function(){
+                                    if($.cookie('token')){
+                                      this.token = $.cookie('token');
+                                      jwt.verify(this.token,'abc',function(error,result){
+                                        var username = result.username;
+                                        $.ajax({
+                                          url:'http://localhost:777/php/orderstatus.php'//php动态页
+                                          ,type:'post'
+                                          ,data:{username:username}//调用json.js类库将json对象转换为对应的JSON结构字符串
+                                          ,success:function(rst){
+                                            console.log(rst);
+                                            alert('PHP接收JSON数据成功！');
+                                          }
+                                          ,error:function(xhr){alert('PHP页面有错误！'+xhr.responseText);}
+                                        });
+                                      })
+                                    }
+                                    //判断是否有token
                                       axios({
                                               url:'http://10.3.135.62:81/print',
                                               method: "post",
@@ -99,8 +116,9 @@
                                       })
                                       alert('已成功支付')
                                   
-                                  }},
-                                  { title:"取消",click:function(){alert("你点了取消")} }
+                                  }
+                                },
+                                { title:"取消",click:function(){alert("你点了取消")} }
                               ]
                             }
                             $.alertView(json)

@@ -1,16 +1,8 @@
 <?php
-/**
- * @Author: Marte
- * @Date:   2017-12-11 22:43:07
- * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-12 20:13:52
- */
 header('Access-Control-Allow-Origin:*');
     include "./dbhelpbd.php";
-    $data = isset($_POST['data']) ? $_POST['data'] : '';
     $username = isset($_POST['username']) ? $_POST['username'] : '';
-    echo $data;
-    $sql = "UPDATE orderlist SET orderDetail= '$data' WHERE username='$username' AND orderstate=1";
+    $sql = "UPDATE orderlist SET orderstate=2 WHERE username='$username' AND orderstate=1";
 
     $result = excute($sql);
 

@@ -1,6 +1,6 @@
 <template>
 
-    <div class="content">
+    <div class="content" id="home">
 
       <swiper :options="swiperOption" ref="mySwiper" >
         
@@ -10,19 +10,38 @@
 
       <div class="list-block">
         <ul>
-          <li class="item-content">
-            <div class="item-media"><i class="icon icon-f7"></i></div>
-            <div class="item-inner">
-              <div class="item-title">商品名称</div>
-              <div class="item-after">杜蕾斯</div>
-            </div>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2rem;'></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">扫一扫，快支付</div>
+                  <div class="item-after">扫码自助购，免排队，快支付</div>
+                </div>
+              </div>
+            </a>
           </li>
-          <li class="item-content">
-            <div class="item-media"><i class="icon icon-f7"></i></div>
-            <div class="item-inner">
-              <div class="item-title">型号</div>
-              <div class="item-after">极致超薄型</div>
-            </div>
+           <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2rem;'></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">最新海报</div>
+                  <div class="item-after">【无人超市】2017/11/22-12/5</div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2rem;'></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">贴心配送</div>
+                  <div class="item-after">整单满128元，专业的配送</div>
+                </div>
+              </div>
+            </a>
           </li>
         </ul>
       </div>
@@ -32,6 +51,7 @@
 
 
 <script type="text/javascript">
+    import './home.scss'
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
     export default{
         name: 'carrousel',
@@ -70,7 +90,7 @@
         },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);
-
+            
         },
     }
 </script>

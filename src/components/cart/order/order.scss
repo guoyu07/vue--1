@@ -5,12 +5,20 @@
         li{
             background: #fff;
             margin:0.5rem 0;
+
             .item-title_order{
                 a{
                     display: inline-block;
                     margin-right: 1rem;
-                    width: 2.5rem;
-                    height: 2.5rem;
+                    height:auto;
+                    overflow:hidden;
+                    img{
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        text-align: center;
+                        margin: 0 auto;
+
+                    }
                 }
             }     
         }
