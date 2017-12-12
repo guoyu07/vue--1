@@ -34,9 +34,9 @@
             </li>
           </ul>
         </div>
-        <div class="list-block" style="margin-top:10px;">
+        <div class="list-block" style="margin-top:30px;">
           <ul >
-            <li class="item-content exit" @click="exit">
+            <li class="item-content exit" @click="exit" v-if="logining==1">
               <div class="item-inner">
                 <div class="item-title button-danger"> 退出登录</div>
                 <span class="icon icon-right"></span>
@@ -55,24 +55,21 @@
         data(){
             return{
               toolbar:'设置',
-              backrouter:'/mine'
+              backrouter:'/mine',
+              logining:2
             }
-        },
-        methods:{
-          mine:function(){
-            this.$router.push({path:'/mine'});
-
-
-          }
         },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar,this.backrouter);
         },
         methods:{
+            mine:function(){
+              this.$router.push({path:'/mine'});
+            },
             exit(){
                 if(confirm("确认退出?")){
-                    $.cookie("token",'',{ path: "/", expiress:-1});
-                     this.$router.push({path:'/mine'});
+                  $.cookie("token",'',{ path: "/", expiress:-1});
+                  this.$router.push({path:'/mine'});
 
                 }else{
                     return
@@ -84,6 +81,14 @@
             changePwd(){
                 this.$router.push({path: '/changePwd'})
             }           
+        },
+        beforeMount:function(){
+            if($.cookie('token')){
+              this.logining=1
+            }else{
+              this.logining=2
+              
+            }
         }
     }
 

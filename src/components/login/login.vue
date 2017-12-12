@@ -34,9 +34,11 @@
           </li>
         </ul>
       </div>
+      <spinner v-show="spShow"></spinner>
     </div>
 </template>    
 <script type="text/javascript">
+    import spinner from '../spinner/spinner.vue'
     import axios from 'axios';
     import qs from 'qs';
     import jwt from 'jsonwebtoken';
@@ -45,14 +47,13 @@
             return {
                 username:"" ,
                 password:"",
-                toolbar:'登录'
+                toolbar:'登录',
+                spShow: false
             }
         },
         methods:{
             login:function(){
-              if(!this.password){
-                return;
-              }
+              this.spShow = true;
                 axios({
                     url: 'http://localhost:777/php/login.php',
                     method: 'post',
@@ -61,6 +62,7 @@
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 }).then(res => {
+                  this.spShow = false;
                   if(res.data=="ok"){
                     this.home();
                     this.token = jwt.sign({username:this.username}, 'abc', {
@@ -84,6 +86,11 @@
         },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);
+        },
+        components: {
+            spinner: spinner
         }
     }
+
+    
 </script>

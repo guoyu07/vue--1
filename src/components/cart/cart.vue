@@ -3,7 +3,7 @@
       <div class="list-block big"  v-if='dataset==[]'>
         <span class="icon icon-cart"></span>
         <p></p>
-        <p><a href="#" class="button button-fill button-danger ">去购物 </a></p>
+        <p><a href="#" class="button button-fill button-danger" @click="barcode">去购物 </a></p>
       </div>
         <div class="list-block" v-if='dataset!=[]' >
           <ul>
@@ -67,6 +67,9 @@
             }
         },
         methods:{
+          barcode:function(){
+              this.$router.push({path:'/barcode'}) 
+            },
           minqty:function(event,_index){
               event.path[1].children[1].innerText++;
               this.dataset[_index].qty = event.path[1].children[1].innerText;
