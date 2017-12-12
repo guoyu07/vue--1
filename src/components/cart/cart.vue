@@ -2,7 +2,7 @@
     <div >
       <div class="list-block big"  v-if='dataset==[]'>
         <span class="icon icon-cart"></span>
-        <p></p>
+
         <p><a href="#" class="button button-fill button-danger " @click="barcode">去购物 </a></p>
       </div>
         <div class="list-block" v-if='dataset!=[]' >
@@ -67,6 +67,9 @@
             }
         },
         methods:{
+          barcode:function(){
+              this.$router.push({path:'/barcode'}) 
+            },
           minqty:function(event,_index){
               event.path[1].children[1].innerText++;
               this.dataset[_index].qty = event.path[1].children[1].innerText;
@@ -92,7 +95,7 @@
                     ,data:{data:JSON.stringify(datas),username:username}//调用json.js类库将json对象转换为对应的JSON结构字符串
                     ,success:function(rst){
                       console.log(rst);
-                      alert('PHP接收JSON数据成功！');
+                      //alert('PHP接收JSON数据成功！');
                     }
                     ,error:function(xhr){alert('PHP页面有错误！'+xhr.responseText);}
                   });

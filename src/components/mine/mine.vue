@@ -1,12 +1,21 @@
 <template>
   
     <div class="content">
-      <div style="background:#fff">
-        <span>用户</span><br />
-        <i id="name"></i>
+      <div class="list-block" style="background:#fff">
+        <div class="item-content" v-if="logining==1">
+          <div>
+            <span>用户: </span>
+            <i id="name"></i>
+          </div>
+        </div>
+        <div class="item-content" v-if="logining==2">
+            <span>登录优惠更多优惠</span>
+            <p style="padding:0 20px;"><a class="button button-danger button-fill" @click="login"> 登录 </a></p>
+        </div>
       </div>
 
       <div class="list-block" style="margin-top:10px;">
+
         <div class="buttons-tab">
               <a class="button">全部订单</a>
               <a class="button">待支付</a>
@@ -66,7 +75,8 @@
         data(){
             return{
               toolbar:'我的',
-              token:''
+              token:'',
+              logining:1
             }
         },
         methods:{
@@ -87,19 +97,22 @@
             },
             setting : function(){
               this.$router.push({path: '/setting'})
+            },
+            login : function(){
+              this.$router.push({path: '/login'})
             }
         },
         mounted:function(){
-            this.$parent.initToolbar(this.toolbar);
-            if($.cookie('token')){
-              console.log(66);
-               this.token=$.cookie('token'); 
-               jwt.verify(this.token,'abc',function(error,result){
-                $('#name').html(result.username)
-                })           
-            }else{
-              $('#name').html('登录优惠更多');
-            }
+          this.$parent.initToolbar(this.toolbar);
+          if($.cookie('token')){
+              this.logining=1
+             this.token=$.cookie('token'); 
+             jwt.verify(this.token,'abc',function(error,result){
+              $('#name').html(result.username)
+              })           
+          }else{
+            this.logining=2
+          }
         }
     }
 

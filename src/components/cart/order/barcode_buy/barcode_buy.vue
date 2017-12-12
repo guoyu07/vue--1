@@ -98,7 +98,7 @@
                                           ,data:{username:username}//调用json.js类库将json对象转换为对应的JSON结构字符串
                                           ,success:function(rst){
                                             console.log(rst);
-                                            alert('PHP接收JSON数据成功！');
+                                            //alert('PHP接收JSON数据成功！');
                                           }
                                           ,error:function(xhr){alert('PHP页面有错误！'+xhr.responseText);}
                                         });
