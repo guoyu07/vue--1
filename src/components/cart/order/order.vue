@@ -109,7 +109,7 @@ import './order.scss';
           total(){
              var num = null;
              this.dataset.forEach(function(v,i){
-               num += v.goodpirce*v.qty 
+               num += v.goodprice*v.qty 
                //console.log(num)
             });
             return num

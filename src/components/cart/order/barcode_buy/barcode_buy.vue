@@ -33,7 +33,7 @@
            total(){
              var num = null;
              this.dataset.forEach(function(v,i){
-               num += v.goodpirce*v.qty 
+               num += v.goodprice*v.qty 
             });
             return num
           }
@@ -77,8 +77,8 @@
                             var TheCartList = `商品      数量     单价        \n`;
                             var num = null;
                             this.dataset.forEach(function(item,idx){
-                              TheCartList+=`${item.goodname}      ${item.qty}     ￥${item.goodpirce}\n`;
-                               num += item.goodpirce*item.qty; 
+                              TheCartList+=`${item.goodname}      ${item.qty}     ￥${item.goodprice}\n`;
+                               num += item.goodprice*item.qty; 
                             })
                             var total = num;
                             var somes = marketName + br + TheCartList + line + '总价  ￥'+num +'\n'+ br +'\n\n';

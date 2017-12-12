@@ -28,7 +28,7 @@
                       <p >{{value.goodname}}</p>
                     </div>
                     <div class="row price">
-                      <p >￥{{value.goodpirce}}</p>
+                      <p >￥{{value.goodprice}}</p>
                       <p><button @click='addqty($event,index)' >-</button><span>{{value.qty}}</span><button @click='minqty($event,index)' >+</button></p>
                     </div>
                   </div>
@@ -105,7 +105,7 @@
           total(){
              var num = null;
              this.dataset.forEach(function(v,i){
-               num += v.goodpirce*v.qty 
+               num += v.goodprice*v.qty 
                //console.log(num)
             });
             return num
@@ -138,7 +138,6 @@
 
                                   thisVue.dataset = JSON.parse(item.orderDetail)
                                   //关键点
-                                  //console.log(thisVue)
                                 }
                             })
 
