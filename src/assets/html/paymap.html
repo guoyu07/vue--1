@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>xxx</title>
+
+</head>
+<body>
+    <button id='btn'>确认支付</button>
+</body>
+<script src="../../libs/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    jQuery(function(){
+        var orderno = window.location.search.replace('?',"").split('=')[1]
+        console.log(orderno)
+        $.post('http://localhost:31/findorder',{orderno:orderno},function(res){
+            console.log(res);
+        })
+    })
+    </script>
+</html>

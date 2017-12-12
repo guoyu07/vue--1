@@ -1,0 +1,50 @@
+
+#order{
+    ul{
+        background-color: #efeff4;
+        li{
+            background: #fff;
+            margin:0.5rem 0;
+            .item-title_order{
+                a{
+                    display: inline-block;
+                    margin-right: 1rem;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+            }     
+        }
+        li.buy{
+            position:absolute;
+            bottom:0;
+            margin: 0;
+            width: 100%;
+                .col-20{
+                    background: #E70012;
+                    height: 2.35rem;
+                    width: 4.0rem;
+                    color: #fff;
+                    line-height: 2.35rem;
+                    font-size: 0.75rem
+                }
+                .col-80{
+                    p{
+                        margin: 0;
+                        text-align: left;
+                    }
+                    .big{
+                        font-size: 0.7rem;
+                        font-weight: bold;
+                        span{
+                            color: #E70012;
+                        }
+                    }
+                    .small{
+                        font-size: 0.5rem;
+                    }
+                }
+        }
+    }
+}
+
+
