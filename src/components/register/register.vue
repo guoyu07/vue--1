@@ -55,13 +55,13 @@
                 <p><a href="#" class="button button-fill button-warning " @click="login">返回</a></p>
             </div>
           </li>
-
-
         </ul>
       </div>
+      <spinner v-show="spShow"></spinner>
     </div>
 </template>    
 <script type="text/javascript">
+    import spinner from '../spinner/spinner.vue'
     import axios from 'axios';
     import qs from 'qs';
     import jwt from 'jsonwebtoken';
@@ -73,7 +73,8 @@
                 authCode:'',             
                 password:'',
                 password2:'',
-                token:''
+                token:'',
+                spShow: false
             }
         },
         methods:{
@@ -91,6 +92,7 @@
               }else  if(this.password==''||this.password2==''){
                 alert('请输入密码');
               }else  if(this.password===this.password2){
+                this.spShow=true;
                 axios({
                     url: 'http://localhost:777/php/register.php',
                     method: 'post',
@@ -99,8 +101,9 @@
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 }).then(res => {
+                  this.spShow=false;
                   console.log(res.data)
-                  if(res.data){
+                  if(res.data=='fail'){
                     alert('用户名已注册');
                   }else{
                       this.home();
@@ -109,7 +112,6 @@
                             }
                       );                    
                       $.cookie("token", this.token, { path: "/", expiress:1 ,sucue:true});
-                      
                   }
                 })
               
@@ -120,6 +122,9 @@
         },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);
+        },
+        components: {
+            spinner: spinner
         }
     }
 </script>

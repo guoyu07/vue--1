@@ -127,6 +127,7 @@
                                 });                
                              });
                         }else{
+                            this.spShow=false;
                             alert('没有此商品条码');
                         }
                     });                   
