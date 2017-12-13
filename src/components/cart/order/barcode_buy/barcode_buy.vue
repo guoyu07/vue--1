@@ -1,6 +1,6 @@
 <template>
       <div class="content">
-      <remote-js src='src/libs/jquery.uiAlertView-1.0.0.js'></remote-js>
+      
             
       </div>
 </template>
@@ -22,14 +22,7 @@
         },
         //外部引入js;
         components: {
-            'remote-js': {
-                render(createElement) {
-                 return createElement('script', { attrs: { type: 'text/javascript', src: this.src }});
-                },
-                props: {
-                  src: { type: String, required: true },
-                },
-           },
+            
            total(){
              var num = null;
              this.dataset.forEach(function(v,i){
@@ -117,7 +110,6 @@
                                       })
                                       alert('已成功支付')
                                       thisVue.$router.push({path:'/home'})
-                                  
                                   }
                                 },
                                 { title:"取消",click:function(){

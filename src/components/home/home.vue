@@ -10,7 +10,7 @@
 
       <div class="list-block">
         <ul>
-          <li>
+          <li @click="barcode">
             <a href="#" class="item-link item-content">
               <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2rem;'></div>
               <div class="item-inner">
@@ -82,8 +82,7 @@
                 }  
           }
         },
-        computed: {  
-  
+        computed: {
             swiper() {  
               return this.$refs.mySwiper.swiper;  
             }  
@@ -92,6 +91,11 @@
             this.$parent.initToolbar(this.toolbar);
             
         },
+        methods:{
+            barcode : function(){
+                this.$router.push({path: '/barcode'})
+            },
+        }
     }
 </script>
 <style type="text/css">

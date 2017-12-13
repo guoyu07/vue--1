@@ -6,8 +6,6 @@ import minecomponent from '../components/mine/mine.vue';
 
 
 import cartcomponent from '../components/cart/cart.vue';
-
-
 import invoicecomponent from '../components/mine/conponents/invoice/invoice.vue';
 import sharecomponent from '../components/mine/conponents/share/share.vue';
 import feedbackcomponent from '../components/mine/conponents/feedback/feedback.vue';

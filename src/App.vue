@@ -1,5 +1,6 @@
 <template>
   <div id='app'>
+    <remote-js src='src/libs/jquery.uiAlertView-1.0.0.js'></remote-js>
     <div class="page-group">
         <div class="page page-current">
         <!-- 你的html代码 -->
@@ -11,7 +12,6 @@
                   <h1 class="title">{{toolbar}}</h1>                  
                 </header>
                 <nav class="bar bar-tab" v-if="unShows.indexOf(toolbar)<0">
-
                   <a class="tab-item " @click="home">
                     <span class="icon icon-home"></span>
                     <span class="tab-label">首页</span>
@@ -30,9 +30,7 @@
                   </a>
                 </nav>
                 <div class="content">
-
                 <!-- 这里是页面内容区 -->
-
                   <router-view></router-view>
 
                 </div>
@@ -53,26 +51,31 @@ export default {
       backrouter:null
     }
   },
+  components:{
+    'remote-js': {
+                render(createElement) {
+                 return createElement('script', { attrs: { type: 'text/javascript', src: this.src }});
+                },
+                props: {
+                  src: { type: String, required: true },
+                },
+    }
+  },
   methods:{
         home : function(event){
               this.$router.push({path: '/home'})
-              event.path[1].classList.add("active")
             },
         mine : function(event){
-
               this.$router.push({path:'/mine'})
-              event.path[1].classList.add("active")
-
         },
         cart : function(event){
               this.$router.push({path:'/cart'}) 
-              event.path[1].classList.add("active")
-
         },
         barcode:function(event){
               this.$router.push({path:'/barcode'}) 
-              event.path[1].classList.add("active")
-
+        },
+        login:function(event){
+              this.$router.push({path:'/login'}) 
         },
         back:function(){
           this.$router.push({path:this.backrouter})
@@ -81,13 +84,16 @@ export default {
           this.toolbar = _config;
           this.backrouter = _backrouter;
         }
-
-
   },
-  // beforeUpdate:function(){
-  //  this.$router.push({path: '/home'})
-  // }
+  mounted:function(){
+    this.login();
+  }
 }
+jQuery(function($){
+  $(document).on('click','.tab-item',function(){
+    $(this).addClass('active').siblings('a').removeClass('active')
+  })
+})
 
 </script>
 
