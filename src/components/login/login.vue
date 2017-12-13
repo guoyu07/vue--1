@@ -29,7 +29,6 @@
             <div class="content-block">
                 <p><a href="#" class="button button-fill button-success" @click="login">登录</a></p>
                 <p><a href="#" class="button button-fill button-danger" @click="register" >注册</a></p>
-                <p><a href="#" class="button button-fill button-warning " @click="home">返回</a></p>
             </div>
           </li>
         </ul>
@@ -48,7 +47,8 @@
                 username:"" ,
                 password:"",
                 toolbar:'登录',
-                spShow: false
+                spShow: false,
+                backrouter:'/home'
             }
         },
         methods:{
@@ -84,7 +84,7 @@
             }
         },
         mounted:function(){
-            this.$parent.initToolbar(this.toolbar);
+            this.$parent.initToolbar(this.toolbar,this.backrouter);
             if($.cookie('token')){
               this.home()
             }
@@ -93,6 +93,4 @@
             spinner: spinner
         }
     }
-
-    
 </script>

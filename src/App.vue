@@ -9,7 +9,10 @@
                   <span class="icon icon-left" ></span>
                   返回
                   </a>
-                  <h1 class="title">{{toolbar}}</h1>                  
+                  <h1 class="title">{{toolbar}}</h1>
+                  <a class="button button-link button-nav pull-right" style="margin-right: 10px;" v-if='toolbar==goCart' @click="cart">
+                  <span class="icon icon-cart"></span>
+                  </a>                  
                 </header>
                 <nav class="bar bar-tab" v-if="unShows.indexOf(toolbar)<0">
                   <a class="tab-item " @click="home">
@@ -47,8 +50,9 @@ export default {
   data () {
     return {
       toolbar:null,
-      unShows:['登录','电子发票','分享给好友','用户反馈','优惠券','关于我们','设置','修改密码','常见问题','确认订单','扫描'],
-      backrouter:null
+      unShows:['','电子发票','分享给好友','用户反馈','优惠券','关于我们','设置','修改密码','常见问题','确认订单','扫描','注册','登录'],
+      backrouter:null,
+      goCart:'扫描'
     }
   },
   components:{

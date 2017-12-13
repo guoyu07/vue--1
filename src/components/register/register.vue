@@ -43,16 +43,13 @@
               </div>
             </div>
           </li>
-
       <!-- Select -->
-
           <li>
               <h6>注册即视为同意<a href="#" >注册协议</a></h6>
           </li>
           <li>
             <div class="content-block">
                 <p><a href="#" class="button button-fill button-danger" @click="register">注册</a></p>
-                <p><a href="#" class="button button-fill button-warning " @click="login">返回</a></p>
             </div>
           </li>
         </ul>
@@ -74,7 +71,8 @@
                 password:'',
                 password2:'',
                 token:'',
-                spShow: false
+                spShow: false,
+                backrouter:'/login'
             }
         },
         methods:{
@@ -121,7 +119,7 @@
             }
         },
         mounted:function(){
-            this.$parent.initToolbar(this.toolbar);
+            this.$parent.initToolbar(this.toolbar,this.backrouter);
         },
         components: {
             spinner: spinner
