@@ -43,7 +43,7 @@
                       //关键点
                       var username = result.username;
                       axios({
-                            url:'http://localhost:777/php/cart.php',
+                            url:'http://10.3.135.228:777/php/cart.php',
                             method: "post",
                             data: qs.stringify({username:username}),
                             //参数要经过qs转化为字符
@@ -86,7 +86,7 @@
                                       jwt.verify(this.token,'abc',function(error,result){
                                         var username = result.username;
                                         $.ajax({
-                                          url:'http://localhost:777/php/orderstatus.php'//php动态页
+                                          url:'http://10.3.135.228:777/php/orderstatus.php'//php动态页
                                           ,type:'post'
                                           ,data:{username:username}//调用json.js类库将json对象转换为对应的JSON结构字符串
                                           ,success:function(rst){

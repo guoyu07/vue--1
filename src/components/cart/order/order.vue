@@ -126,7 +126,7 @@ import './order.scss';
                       //关键点
                       var username = result.username;
                       axios({
-                            url:'http://localhost:777/php/cart.php',
+                            url:'http://10.3.135.228:777/php/cart.php',
                             method: "post",
                             data: qs.stringify({username:username}),
                             //参数要经过qs转化为字符

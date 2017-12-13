@@ -55,7 +55,7 @@
             login:function(){
               this.spShow = true;
                 axios({
-                    url: 'http://localhost:777/php/login.php',
+                    url: 'http://10.3.135.228:777/php/login.php',
                     method: 'post',
                     data: qs.stringify({username: this.username, password: this.password}),
                     headers: {

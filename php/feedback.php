@@ -3,7 +3,7 @@
  * @Author: Marte
  * @Date:   2017-11-16 20:36:53
  * @Last Modified by:   Marte
- * @Last Modified time: 2017-12-13 15:01:06
+ * @Last Modified time: 2017-12-13 17:18:04
  */
 
     include "./public.php";   
@@ -13,6 +13,7 @@
     // 接受前端数据
     $username = isset($_POST['username']) ? $_POST['username'] :'';
     $feedback = isset($_POST['feedback']) ? $_POST['feedback'] :'';
+
     
     $sql="insert into feedback(username,feedback)  values ('$username','$feedback')";
     $result = $conn->query($sql);

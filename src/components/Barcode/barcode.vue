@@ -43,7 +43,7 @@
                     this.spShow=true;
                     var $this=this;
                     axios({
-                        url: 'http://localhost:777/php/searchgood.php',
+                        url: 'http://10.3.135.228:777/php/searchgood.php',
                         method: 'post',
                         data: qs.stringify({barcode:this.barcode}),
                         headers: {
@@ -63,7 +63,7 @@
                             jwt.verify(this.token,'abc',function(error,result){
                                 var username=result.username;
                                 axios({
-                                    url: 'http://localhost:777/php/searchorder.php',
+                                    url: 'http://10.3.135.228:777/php/searchorder.php',
                                     method: 'post',
                                     data: qs.stringify({username:username,orderstate:1}),
                                     headers: {
@@ -83,7 +83,7 @@
                                             goodlist[goodlist.length]=new_add_good;
                                             var good_list=JSON.stringify(goodlist);
                                             $.ajax({
-                                                url:'http://localhost:777/php/storeorder_good.php'//php动态页
+                                                url:'http://10.3.135.228:777/php/storeorder_good.php'//php动态页
                                                 ,type:'POST'
                                                 ,data:{orderDetail:good_list,username:username}//调用json.js类库将json对象转换为对应的JSON结构字符串
                                                 ,success:function(rst){
@@ -114,7 +114,7 @@
                                         var ordertime=year+'-'+p(month)+"-"+p(date)+" "+p(h)+':'+p(m);
                                         var orderDetail = JSON.stringify([new_add_good]);
                                         axios({
-                                            url: 'http://localhost:777/php/add_orderlist.php',
+                                            url: 'http://10.3.135.228:777/php/add_orderlist.php',
                                             method: 'post',
                                             data: qs.stringify({orderId:orderId,orderDetail:orderDetail,username:username,ordertime:ordertime}),
                                             headers: {

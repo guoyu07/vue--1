@@ -16,9 +16,10 @@
 
       <div class="list-block" style="margin-top:10px;">
 
+
         <div class="buttons-tab">
-              <a class="button">全部订单</a>
-              <a class="button">待支付</a>
+              <a class="button" @click='allorder'>全部订单</a>
+              <a class="button" @click='buyorder'>待支付</a>
               <a class="button">退货订单</a>
         </div>
         <div>
@@ -100,7 +101,14 @@
             },
             login : function(){
               this.$router.push({path: '/login'})
+            },
+            allorder : function(){
+              this.$router.push({path: '/allorder'})
+            },
+            buyorder : function(){
+              this.$router.push({path: '/buyorder'})
             }
+
         },
         mounted:function(){
           this.$parent.initToolbar(this.toolbar);
