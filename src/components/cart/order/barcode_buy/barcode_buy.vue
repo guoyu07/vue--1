@@ -1,6 +1,6 @@
 <template>
       <div class="content">
-      <remote-js src='src/libs/jquery.uiAlertView-1.0.0.js'></remote-js>
+      
             
       </div>
 </template>
@@ -22,14 +22,7 @@
         },
         //外部引入js;
         components: {
-            'remote-js': {
-                render(createElement) {
-                 return createElement('script', { attrs: { type: 'text/javascript', src: this.src }});
-                },
-                props: {
-                  src: { type: String, required: true },
-                },
-           },
+            
            total(){
              var num = null;
              this.dataset.forEach(function(v,i){
@@ -98,6 +91,7 @@
                                           ,data:{username:username}//调用json.js类库将json对象转换为对应的JSON结构字符串
                                           ,success:function(rst){
                                             console.log(rst);
+
                                             //alert('PHP接收JSON数据成功！');
                                           }
                                           ,error:function(xhr){alert('PHP页面有错误！'+xhr.responseText);}
@@ -115,9 +109,15 @@
                                               }
                                       })
                                       alert('已成功支付')
+                                      thisVue.$router.push({path:'/home'})
                                   }
                                 },
-                                { title:"取消",click:function(){alert("你点了取消")} }
+                                { title:"取消",click:function(){
+                                  console.log(thisVue)
+                                  thisVue.$router.push({path:'/cart'}) 
+                                  alert("你点了取消")
+
+                                } }
                               ]
                             }
                             $.alertView(json)

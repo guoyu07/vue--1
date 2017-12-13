@@ -44,7 +44,8 @@ var router  = new Vrouter({
         },
         {
             path:'/cart',
-            component: cartcomponent
+            component: cartcomponent,
+            
         },  
         {
             path:'/home',

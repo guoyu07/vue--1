@@ -1,5 +1,6 @@
 <template>
   <div id='app'>
+    <remote-js src='src/libs/jquery.uiAlertView-1.0.0.js'></remote-js>
     <div class="page-group">
         <div class="page page-current">
         <!-- 你的html代码 -->
@@ -48,6 +49,16 @@ export default {
       toolbar:null,
       unShows:['登录','电子发票','分享给好友','用户反馈','优惠券','关于我们','设置','修改密码','常见问题','确认订单','扫描'],
       backrouter:null
+    }
+  },
+  components:{
+    'remote-js': {
+                render(createElement) {
+                 return createElement('script', { attrs: { type: 'text/javascript', src: this.src }});
+                },
+                props: {
+                  src: { type: String, required: true },
+                },
     }
   },
   methods:{
