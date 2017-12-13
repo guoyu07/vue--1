@@ -32,7 +32,11 @@
   export default{
         data(){
             return{
+<<<<<<< HEAD
               toolbar:'全部订单',
+=======
+              toolbar:'全部定单',
+>>>>>>> 8bd0bbfdd170e2d4538e080a7f95f7b18d500954
               token:'',
               dataset:''
             }
@@ -65,7 +69,11 @@
                       //关键点
                       var username = result.username;
                       axios({
+<<<<<<< HEAD
                             url:'http://10.3.135.228:777/php/cart.php',
+=======
+                            url:'http://localhost:777/php/cart.php',
+>>>>>>> 8bd0bbfdd170e2d4538e080a7f95f7b18d500954
                             method: "post",
                             data: qs.stringify({username:username}),
                             //参数要经过qs转化为字符
