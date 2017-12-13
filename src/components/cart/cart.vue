@@ -64,7 +64,8 @@
             return{
               toolbar:'购物车',
               dataset:"",
-              token:""
+              token:"",
+              res:"",
             }
         },
         methods:{
@@ -121,6 +122,7 @@
                num += v.goodprice*v.qty 
                //console.log(num)
             });
+            
             return num
           }
         },
@@ -147,6 +149,7 @@
                       }).then(res => {
 
                             //console.log(res.data)
+                            thisVue.res = res.data;
                             res.data.forEach(function(item,idx){
                                 if(item.orderstate==1){
 

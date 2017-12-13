@@ -21,6 +21,8 @@ import barcodecomponent from '../components/barcode/barcode.vue';
 import registercomponent from '../components/register/register.vue';
 import ordercomponent from '../components/cart/order/order.vue';
 import barcode_buycomponent from '../components/cart/order/barcode_buy/barcode_buy.vue';
+import allordercomponent from '../components/mine/allorder/allorder.vue';
+import buyordercomponent from '../components/mine/buyorder/buyorder.vue';
 
 
 
@@ -96,6 +98,13 @@ var router  = new Vrouter({
             path:'/barcode_buy',
             component: barcode_buycomponent
         },
+        {
+            path:'/allorder',
+            component: allordercomponent
+        },{
+            path:'/buyorder',
+            component: buyordercomponent
+        }
     ]
 })
 
