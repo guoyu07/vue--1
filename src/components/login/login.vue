@@ -81,11 +81,13 @@
             },
             register : function(){
                 this.$router.push({path: '/register'});
-                
             }
         },
         mounted:function(){
             this.$parent.initToolbar(this.toolbar);
+            if($.cookie('token')){
+              this.home()
+            }
         },
         components: {
             spinner: spinner

@@ -115,7 +115,6 @@
                                               }
                                       })
                                       alert('已成功支付')
-                                  
                                   }
                                 },
                                 { title:"取消",click:function(){alert("你点了取消")} }
