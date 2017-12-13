@@ -98,6 +98,7 @@
                                           ,data:{username:username}//调用json.js类库将json对象转换为对应的JSON结构字符串
                                           ,success:function(rst){
                                             console.log(rst);
+
                                             //alert('PHP接收JSON数据成功！');
                                           }
                                           ,error:function(xhr){alert('PHP页面有错误！'+xhr.responseText);}
@@ -115,10 +116,16 @@
                                               }
                                       })
                                       alert('已成功支付')
+                                      thisVue.$router.push({path:'/home'})
                                   
                                   }
                                 },
-                                { title:"取消",click:function(){alert("你点了取消")} }
+                                { title:"取消",click:function(){
+                                  console.log(thisVue)
+                                  thisVue.$router.push({path:'/cart'}) 
+                                  alert("你点了取消")
+
+                                } }
                               ]
                             }
                             $.alertView(json)

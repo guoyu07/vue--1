@@ -18,6 +18,7 @@
                  <div class="item-title"> <a href="#" class="button button-fill button-danger">促销 </a><span>一元一积分</span> </div>
               </li>
               <li class="item-content list" v-for= "(value,index) in dataset" :id="value.good_id">
+                <a href="#" @click="del">X</a>
                   <div class="item-title">
                     <a href="#" class="button disabled">
                       <img :src="value.img" alt="" />
@@ -68,6 +69,7 @@
         },
         methods:{
           barcode:function(){
+              
               this.$router.push({path:'/barcode'}) 
             },
           minqty:function(event,_index){
@@ -104,6 +106,11 @@
           },
           barcode:function(){
               this.$router.push({path:'/barcode'});
+          },
+          del:function(event,index){
+            console.log(event)
+             this.dataset.splice(index,1);
+             console.log(this.dataset)
           }          
         },
         computed:{
@@ -119,7 +126,8 @@
         },
         mounted:function(){
           this.$parent.initToolbar(this.toolbar);
-
+          console.log(this.dataset)
+          var datas = this.dataset;
           if($.cookie('token')){
             this.token = $.cookie('token');
 
@@ -152,5 +160,6 @@
             //关键点
           }
         }
+
       }
 </script>
