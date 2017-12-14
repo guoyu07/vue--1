@@ -37,6 +37,7 @@
     </div>
 </template>    
 <script type="text/javascript">
+    import https from '.././../libs/baseURL.vue'
     import spinner from '../spinner/spinner.vue'
     import axios from 'axios';
     import qs from 'qs';
@@ -54,14 +55,8 @@
         methods:{
             login:function(){
               this.spShow = true;
-                axios({
-                    url: 'http://10.3.135.228:777/php/login.php',
-                    method: 'post',
-                    data: qs.stringify({username: this.username, password: this.password}),
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                }).then(res => {
+                axios.post('login.php',qs.stringify({username: this.username, password: this.password})
+                ).then(res => {
                   this.spShow = false;
                   if(res.data=="ok"){
                     this.home();
